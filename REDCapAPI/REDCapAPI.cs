@@ -290,6 +290,9 @@ namespace REDCapAPI
                 // ServicePointManager.ServerCertificateValidationCallback = delegate(object s, X509Certificate certificate,
                 //                         X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
 
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 HttpWebRequest webreqRedCap = (HttpWebRequest)WebRequest.Create(strURI);
 
                 webreqRedCap.Method = "POST";
